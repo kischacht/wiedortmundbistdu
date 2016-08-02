@@ -1,0 +1,248 @@
+div {
+    padding-top: 0.35%;
+    padding-bottom: 0.35%;
+}
+
+body {
+  font-family: 'Georgia';
+  text-align: justify;
+}
+
+h1, h2, li, .list-group-item.disabled {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #333333;
+}
+
+h2 span { font-size:70%; }
+
+#info-nav {
+  position:absolute;
+  bottom:20px;
+  right:5px;
+  font-size: 150%;
+}
+
+.btn-secondary.active{
+  background: rgba(0,158,224,0.5);
+  color: #ffffff;
+  border:none;
+}
+.bluebtn{
+  background: rgba(0,158,224,0.5);
+  color: #333333;
+  border:none; 
+}
+
+.tglbtn:not(.active) {
+  background-color: rgba(0,158,224,0.2);
+}
+
+#chart6, #chart11, #chart12, #chart13{
+  height:10vh
+}
+
+#chart14, #chart15, #chart16{
+  height:40vh
+}
+
+.underlay {
+  border-left:solid 6px #009ee0;
+  background-color: rgba(0,158,224,0.5);
+  color: #ffffff
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.container {
+  position: relative;
+}
+
+.container div {
+  position: relative;
+  height: 100%;
+}
+
+.glyphicon-ok {
+    margin-top: 13px;
+    visibility: hidden;
+}
+/*
+.alert {
+    visibility: hidden;
+}*/
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    /*background: #000;*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -150px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #333333;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #333333;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #333333;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #999999;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 150px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 150px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+/*
+    .switch input {display:none;}
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #fff300;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #fff300;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }*/
+    }

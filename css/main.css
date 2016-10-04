@@ -90,31 +90,25 @@ h2 span { font-size:70%; }
 }
 
 .glyphicon-ok {
-    margin-top: 13px;
-    padding-right: 10px;
-    visibility: hidden;
+  margin-top: 13px;
+  padding-right: 10px;
+  visibility: hidden;
 }
-/*
-.alert {
-    visibility: hidden;
-}*/
+
+
+.customalert {
+  padding-top: 2%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  vertical-align: middle;
+}
 
 /* Navbar styles */
 
 #rn-img {
-    position: relative;
+    vertical-align: middle;
     padding-bottom: 5%;
     max-height: 50px;
     max-width: 70%;
-}
-
-.glyphicon-info-sign {
-  color: #009ee0;
-  position: absolute;
-  vertical-align: middle;
-  font-size: 170%;
-  right: 2%;
-  top: 30%;
 }
 
 
@@ -241,4 +235,36 @@ h2 span { font-size:70%; }
         position: relative;
         margin-right: 0;
     }
+}
+
+/* Social media buttons */
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  font-size: 170%;
+  right: 2%;
+  top: 20%;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+ul.share-buttons img{
+  width: 3.5vw;
+  max-width:38px;
+  min-width: 15px;
 }

@@ -67,7 +67,11 @@
       <div class="navbar-header pull-left">
           <a class="navbar-brand" href="#">
             <img alt="Ruhrnachrichten.de" src="img/RN_Online_Logo_4c.png" id="rn-img">
-            <span class="glyphicon glyphicon-info-sign"></span>
+            <ul class="share-buttons">
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&t=Wie%20Dortmund%20bist%20du%3F" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="img/Facebook.png"></a></li>
+              <li><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&text=Wie%20Dortmund%20bist%20du%3F%20Teste%20dich%20selbst%20und%20finde%20heraus%20wie%20viel%20Dortmund%20in%20dir%20steckt.%20https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F" target="_blank" title="Tweet"><img alt="Tweet" src="img/Twitter.png"></a></li>
+              <li><a title="More Info"><img alt="More Info" src="img/glyphicon-info-sign.png"></a></li>
+            </ul>
           </a>
         </div>
     </div>
@@ -202,7 +206,7 @@
               </div></div>
               </div> <!-- /row -->
               <button type="button" id="abschicken1" class="btn bluebtn">Antworten abschicken</button>
-              <div id="alert1" class="alert alert-warning alert-dismissible hide" role="alert">
+              <div id="alert1" class="customalert hide" role="alert">
                 Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
               </div>
             </div>  <!-- /#frage1 -->
@@ -296,7 +300,7 @@
                   <input type="radio" name="partei" value="ich neige keiner Partei zu"> ich neige keiner Partei zu</div>
               </div>
               <button type="button" id="abschicken2" class="btn bluebtn">Antworten abschicken</button>
-              <div id="alert2" class="alert alert-warning alert-dismissible hide" role="alert">
+              <div id="alert2" class="customalert hide" role="alert">
                 Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
               </div>              
             </div>
@@ -351,7 +355,7 @@
                   <input type="radio" name="bier" value="keine Angabe"> keine Angabe</div>
             </div><!-- /list group -->
             <button type="button" id="abschicken3" class="btn bluebtn">Antworten abschicken</button>
-            <div id="alert3" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert3" class="customalert hide" role="alert">
               Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
             </div>
           </div> <!-- /#frage3 -->
@@ -397,7 +401,7 @@
                <input type="radio" name="fussball" value="keine Angabe"> keine Angabe
              </div>
             </div><!-- /list group -->
-            <div id="alert4" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert4" class="customalert hide" role="alert">
               Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
             </div>  
           </div> <!-- /#frage4 -->
@@ -440,7 +444,7 @@
                  <div class="list-group-item">                  
                    <input type="radio" name="partei" value="keine Angabe"> keine Angabe</div>
             </div><!-- /list group -->
-            <div id="alert5" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert5" class="customalert hide" role="alert">
               Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
             </div>
           </div> <!-- /#frage5 -->
@@ -475,9 +479,8 @@
                 </div>
               </div>
             <button type="button" id="abschicken6" class="btn bluebtn">Antworten abschicken</button>
-            <div id="alert6" class="alert alert-warning alert-dismissible hide" role="alert">
-              Die Ergebnisse werden angezeigt, sobald Du die Fragen beantwortest. <br>
-              Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
+            <div id="alert6" class="customalert hide" role="alert">
+              Die Ergebnisse werden angezeigt, sobald Du die Fragen beantwortest.
             </div>
           </div> <!-- /#frage6 -->
            <div id="results6" class="results hide">

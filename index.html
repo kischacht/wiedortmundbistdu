@@ -1,0 +1,532 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Wie Dortmund bist du?</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->  
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+
+    <div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a href="#" class="underlay">Start</a></li>
+            <li>
+                <a href="#block1">Menschen
+                <span id="ok1" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#block2">Politik
+                <span id="ok2" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#block3">Bier
+                <span id="ok3" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#block4">Fußball
+                <span id="ok4" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#block5">Autos
+                <span id="ok5" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#block6">Lieblingstier
+                <span id="ok6" class="glyphicon glyphicon-ok pull-right"></span></a>
+            </li>
+            <li>
+                <a href="#score" id="okscore">Dein Ergebnis</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+
+    <!-- Top nav bar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header pull-left">
+          <a class="navbar-brand" href="#">
+            <img alt="Ruhrnachrichten.de" src="img/RN_Online_Logo_4c.png" id="rn-img">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+    </div>
+
+
+
+    <div class="jumbotron" id="intro-header">
+          <div class="container" id="intro-header-text" style="vertical-align: middle">
+            <h1>Wie Dortmund bist du?</h1>
+            <p><b>Ob waschechter Ruhrpottler oder frisch zugezogen: Im Herzen ist jeder ein bisschen Dortmund.<br>Teste Dich selbst und finde heraus, wie viel Dortmund du in dir hast.</b></p>
+            <!--<div class="panel panel-primary" style="margin:15px 0px 15px 0px;padding:10px"><b>Deine Eingaben bleiben völlig anonym und werden nicht gespeichert oder weiter verarbeitet. Die Daten stammen von dem Meinungsforschungsinstitut YouGov.<br>Mehr über die Daten und dazu, wie Dein persönlicher Dortmund-Punktestand berechnet wird, erfährst du oben oder in der Seitenleiste beim Klick auf das "Info"-Symbol.</b></div>-->
+          </div>
+    </div>
+
+    <div class="jumbotron" style="padding-bottom:0">
+        <div class="list-group-item disabled">
+          <p>Sobald Du eine Frage beantwortest, kannst du sehen, wie die Menschen in Dortmund und ganz Deutschland geantwortet haben. Das Umfrageinstitut <a href="https://www.yougov.de/" target="_blank">YouGov</a> hat dafür im Jahr xxx etwa xxx Dortmunder befragt.</p>
+     </div>
+    </div>
+
+    <!-- FRAGENBLOCK 1 -->
+    <div class="jumbotron" style="padding-top:24px">
+            <div class="container" id="block1"><h2>Menschen</h2></div>
+    <!-- FRAGEN 1 -->
+            <div class="container">
+            <div id="frage1">
+              <!-- Geschlecht -->
+              <div class="list-group">
+                <div class="list-group-item disabled">Was ist dein Geschlecht?</div>
+                <div class="list-group-item">
+                  <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="w" class="btn btn-secondary">weiblich</button>
+                  <button type="button" id="m" class="btn btn-secondary">männlich</button>
+                  <button type="button" id="geschlechtNA" class="btn btn-secondary">keine Angabe</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Alter -->              
+              <div class="list-group">
+                <div class="list-group-item disabled">Wie alt bist du?</div>
+                <div class="list-group-item">
+                  <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="alter1" class="btn btn-secondary">18-29 Jahre
+                  </button>
+                  <button type="button" id="alter2" class="btn btn-secondary">30-44 Jahre
+                  </button>
+                  <button type="button" id="alter3" class="btn btn-secondary">45-54 Jahre
+                  </button>
+                  <button type="button" id="alter4" class="btn btn-secondary">55 Jahre und älter
+                  </button>
+                  <button type="button" id="alterNA" class="btn btn-secondary">keine Angabe</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <!-- Sexuelle Orientierung --> 
+              <div class="col-lg-4">                           
+              <div class="list-group">
+                <div class="list-group-item disabled">Was ist deine sexuelle Orientierung?
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="heterosexuell"> heterosexuell
+                  </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="bisexuell"> bisexuell
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="homosexuell"> homosexuell
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="sonstige"> sonstige
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="weiß nicht"> weiß nicht
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="sexuality" value="keine Angabe"> keine Angabe
+                </div>
+              </div>
+            </div>
+            <!-- Schulabschluss -->
+              <div class="col-lg-4">
+              <div class="list-group">
+                <div class="list-group-item disabled">
+                  Was it dein höchster Schulabschluss?
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="Noch in schulischer Ausbildung"> Noch in schulischer Ausbildung</div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="Ohne Schulabschluss"> Ohne Schulabschluss</div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="Haupt-(Volks-)schulabschluss"> Haupt-(Volks-)schulabschluss</div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="Realschul- oder gleichwertiger Abschluss (POS, Mittlere Reife)"> Realschul- oder gleichwertiger Abschluss (POS, Mittlere Reife)</div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="Abitur, Fachhochschulreife"> Abitur, Fachhochschulreife</div>
+                <div class="list-group-item">
+                  <input type="radio" name="schulabschluss" value="keine Angabe"> keine Angabe</div>
+              </div>
+              </div> <!-- /col-lg-4 -->
+              <!-- Religion -->
+              <div class="col-lg-4">
+              <div class="list-group">
+                <div class="list-group-item disabled">Was ist dein Glaube?</div>
+                <div class="list-group-item">  
+                  <input type="radio" name="religion" value="islamisch"> islamisch
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="evangelisch-lutherisch"> evangelisch-lutherisch
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="orthodox-christlich"> orthodox-christlich
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="evangelisch-freikirchlich"> evangelisch-freikirchlich
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="röm.-katholisch"> römisch-katholisch
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="jüdisch"> jüdisch
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="ich habe keinen"> ich habe keinen
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="sonstiger Glaube"> sonstiger Glaube
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="religion" value="keine Angabe"> keine Angabe
+                </div>
+              </div></div>
+              </div> <!-- /row -->
+              <button type="button" id="abschicken1" class="btn bluebtn">Antworten abschicken</button>
+              <div id="alert1" class="alert alert-warning alert-dismissible hide" role="alert">
+                Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
+              </div>
+            </div>  <!-- /#frage1 -->
+            <!-- Antworten 1 -->
+            
+            <div id="results1" class="results hide">
+              <div id="antwort1"></div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 underlay">
+                  <div id="antwort11" class="col-md-12"></div></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 underlay">
+                  <div id="antwort12" class="col-md-12"></div></div>
+              </div>
+              <div class="row underlay">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div id="antwort14" class="col-md-12"></div></div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div id="antwort15" class="col-md-12"></div></div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div id="antwort16" class="col-md-12"></div></div>
+              </div>
+              <!-- CHARTS -->
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do1" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de1" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span><span class="glyphicon glyphicon-arrow-left aria-hidden='true'"></span> Hier klicken, um zwischen den Daten für Dortmund und Deutschland zu wechseln.</span>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row chart-title">Geschlecht (befragte Dortmunder=463)</div>
+                  <div class="row"><div id="chart11"></div></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row chart-title">Alter (befragte Dortmunder=463)</div>
+                  <div class="row">
+                    <div id="chart12"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="row chart-title">Sexuelle Orientierung (befragte Dortmunder=248)</div>
+                  <div class="row"><div id="chart14"></div></div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="row chart-title">Schulabschluss (befragte Dortmunder=413)</div>
+                  <div class="row"><div id="chart15"></div></div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="row chart-title">Glaube (befragte Dortmunder=286)</div>
+                  <div class="row"><div id="chart16"></div></div>
+                </div>
+              </div>
+              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+            </div>
+        </div>
+    </div>
+    <!-- FRAGENBLOCK 2 -->
+    <div class="jumbotron">
+        <div class="container" id="block2"><h2 id="p2">Politik</h2></div>
+        <div class="container">
+            <div id="frage2">
+                <div class="list-group">
+                <div class="list-group-item disabled">
+                  Neigen Sie einer bestimmten Partei zu? Und wenn ja, welcher?
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="SPD"> SPD</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="CDU/CSU"> CDU/CSU</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="Die Linke"> Die Linke</div>
+                <div class="list-group-item">                  
+                  <input type="radio" name="partei" value="Piratenpartei"> Piratenpartei</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="Bündnis 90/Die Grünen"> Bündnis 90/Die Grünen</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="FDP"> FDP</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="AfD"> AfD</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="NPD"> NPD</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="Freie Wähler"> Freie Wähler</div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="Andere Partei"> Andere Partei
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="partei" value="ich neige keiner Partei zu"> ich neige keiner Partei zu</div>
+              </div>
+              <button type="button" id="abschicken2" class="btn bluebtn">Antworten abschicken</button>
+              <div id="alert2" class="alert alert-warning alert-dismissible hide" role="alert">
+                Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
+              </div>              
+            </div>
+
+            <div id="results2" class="results hide">
+              <div><span id="antwort2"></span></div>
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do2" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de2" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span> (befragte Dortmunder=400)</span>
+              <div id="chart2"></div>
+              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+            </div>
+        </div>
+    </div>
+        <div class="jumbotron">
+        <div class="container" id="block3"><h2 id="p3">Bier</h2></div>
+        <div class="container">
+            <div id="frage3">
+              <div class="list-group">
+                <div class="list-group-item disabled">
+                  Welche Biersorten trinkst du zumindest gelegentlich? Du kannst maximal drei Sorten auswählen.
+                </div>
+                <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Altbier"> Altbier</div>
+                <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Export"> Export</div>
+                <div class="list-group-item">                  
+                  <input type="checkbox" name="bier" value="Helles/Export"> Helles/Export
+                </div>
+                <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Kölsch"> Kölsch</div>
+                <div class="list-group-item">
+                    <input type="checkbox" name="bier" value="Pils"> Pils</div>
+                  <div class="list-group-item">
+                    <input type="checkbox" name="bier" value="Schwarzbier"> Schwarzbier</div>
+                  <div class="list-group-item">
+                    <input type="checkbox" name="bier" value="Starkbier"> Starkbier</div>
+                  <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Weißbier/Weizenbier"> Weißbier/Weizenbier</div>
+                <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Alkoholfreies Bier"> Alkoholfreies Bier</div>
+                <div class="list-group-item">
+                  <input type="checkbox" name="bier" value="Sonstige Biersorten"> Sonstige Biersorten
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="bier" value="trifft nicht zu"> trifft nicht zu</div>
+                <div class="list-group-item">
+                  <input type="radio" name="bier" value="weiß nicht"> weiß nicht</div>
+                <div class="list-group-item">
+                  <input type="radio" name="bier" value="keine Angabe"> keine Angabe</div>
+            </div><!-- /list group -->
+            <button type="button" id="abschicken3" class="btn bluebtn">Antworten abschicken</button>
+            <div id="alert3" class="alert alert-warning alert-dismissible hide" role="alert">
+              Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
+            </div>
+          </div> <!-- /#frage3 -->
+
+            <div id="results3" class="results hide">
+              <div><span id="antwort3"></span></div>
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do3" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de3" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span> (befragte Dortmunder=144)</span>
+              <div id="chart3"></div>
+              <div style:'font-size=150%'> Nach den Daten dieser Umfrage zu urteilen, sind die Dortmunder nicht wählerischer als der Rest von Deutschland, was die Sorte ihres Bieres angeht. Hauptsache, die Größe stimmt. Dabei darf es ruhig auch mal etwas kleiner sein: Das Dortmunder Stößchen, ursprünglich für die Arbeiter als schneller Bier für den Heimweg erfunden, fasst nur 0,1 Liter. ...</div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container" id="block4"><h2 id="p4">Fußball</h2></div>
+        <div class="container">
+            <div id="frage4">
+              <div class="list-group">
+                <div class="list-group-item disabled">
+                  Welcher ist Dein Lieblings-Fußballverein?
+                </div>
+                <div class="list-group-item">
+                  <div class="input-group">
+                   <input type="text" class="form-control" id="input4" list="fussballteams" placeholder="Vorschläge durchsuchen...">
+                   <datalist id="fussballteams">
+                     <select id="block4_list"></select>
+                   </datalist>
+                   <span class="input-group-btn">
+                   <button class="btn btn-secondary bluebtn" id="abschicken4" type="button">Antworten</button>                 
+                 </span>
+               </div><!-- /input-group -->
+             </div><!-- /list group item -->
+             <div class="list-group-item">
+               <input type="radio" name="fussball" value="Andere/kein Fußballfan">
+               Andere/kein Fußballfan
+             </div>
+             <div class="list-group-item">
+               <input type="radio" name="fussball" value="weiß nicht"> weiß nicht</div>
+             <div class="list-group-item">                 
+               <input type="radio" name="fussball" value="keine Angabe"> keine Angabe
+             </div>
+            </div><!-- /list group -->
+            <div id="alert4" class="alert alert-warning alert-dismissible hide" role="alert">
+              Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
+            </div>  
+          </div> <!-- /#frage4 -->
+            <div id="results4" class="results hide">
+              <div><span id="antwort4"></span></div>
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do4" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de4" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span> (befragte Dortmunder=188)</span>
+              <div id="chart4"></div>
+              <div style:'font-size=150%'> In Dortmund ist natürlich der BVB mit Abstand der beliebteste Verein. Nach YouGov-Schätzungen ist er der Lieblingsverein von 7 von 10 Dortmundern. Deutschlandweit sind es nur einer von 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam.</div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container" id="block5"><h2 id="p5">Autos</h2></div>
+        <div class="container">
+            <div id="frage5">
+              <div class="list-group">
+                <div class="list-group-item disabled">
+                  Von welchem Hersteller ist Dein hauptsächlich genutzter PKW?
+                </div>
+                <div class="list-group-item">
+                  <div class="input-group">
+                   <input type="text" id="input5" class="form-control" list="automarken" placeholder="Vorschläge durchsuchen...">
+                   <datalist id="automarken">
+                     <select id="block5_list"></select>
+                   </datalist>
+                   <span class="input-group-btn">
+                   <button class="btn btn-secondary bluebtn" id="abschicken5" type="button">Antworten</button></span>
+                   </div><!-- /input-group -->
+                 </div><!-- /list group item -->
+                 <div class="list-group-item">
+                   <input type="radio" name="auto" value="Sonstige"> Sonstige</div>
+                 <div class="list-group-item">
+                   <input type="radio" name="auto" value="ich fahre kein Auto"> ich fahre kein Auto</div>
+                 <div class="list-group-item">
+                   <input type="radio" name="auto" value="weiß nicht"> weiß nicht</div>
+                 <div class="list-group-item">                  
+                   <input type="radio" name="partei" value="keine Angabe"> keine Angabe</div>
+            </div><!-- /list group -->
+            <div id="alert5" class="alert alert-warning alert-dismissible hide" role="alert">
+              Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
+            </div>
+          </div> <!-- /#frage5 -->
+            <div id="results5" class="results hide">
+              <div><span id="antwort5"></span></div>
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do5" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de5" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span> (befragte Dortmunder=191)</span>
+              <div id="chart5"></div>
+              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+            </div>
+        </div>
+    <div class="jumbotron">
+        <div class="container" id="block6"><h2 id="p6">Lieblingstier</h2></div>
+        <div class="container">
+            <div id="frage6">
+              <!-- Hunde oder Kazen -->
+              <div class="list-group">
+                <div class="list-group-item disabled">
+                  Bist Du eher...
+                </div>
+                <div class="list-group-item">
+                  <input type="radio" name="hundkatze" value="Hundefreund"> Hundefreund</div>
+                <div class="list-group-item">
+                  <input type="radio" name="hundkatze" value="Katzenfreund"> Katzenfreund</div>
+                <div class="list-group-item">
+                  <input type="radio" name="hundkatze" value="Weder noch"> Weder noch</div>
+                <div class="list-group-item">                  
+                  <input type="radio" name="hundkatze" value="weiß nicht/keine Angabe"> weiß nicht/keine Angabe
+                </div>
+              </div>
+            <button type="button" id="abschicken6" class="btn bluebtn">Antworten abschicken</button>
+            <div id="alert6" class="alert alert-warning alert-dismissible hide" role="alert">
+              Die Ergebnisse werden angezeigt, sobald Du die Fragen beantwortest. <br>
+              Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
+            </div>
+          </div> <!-- /#frage6 -->
+           <div id="results6" class="results hide">
+              <div><span id="antwort6"></span></div>
+              <div class="btn-group" role="group" aria-label="...">
+                  <button type="button" id="do6" class="tglbtn btn btn-secondary active">DO</button>
+                  <button type="button" id="de6" class="tglbtn btn btn-secondary">DE</button>
+              </div>
+              <span> (befragte Dortmunder=107)</span>
+              <div id="chart6"></div>
+              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container" id="score"><h2>Dein Ergebnis</h2></div>
+        <div class="container">
+            <div id="notyet" class="list-group-item disabled">
+              Beantworte alle Fragen und finde heraus, wie viel Dortmund in dir steckt!
+          </div> <!-- /#notyet -->
+           <div id="done" class="results hide list-group-item disabled">
+              <div align=center style="font-size:150%;font-family: 'Open Sans Condensed', sans-serif">
+                <span style="vertical-align: top">Du hast  </span>
+                <b id="endscore" style="font-size:250%">XX/100</b>
+                <span style="font-size:150%">Punkten erreicht</span>
+              </div>
+              <div style:'font-size=150%' id="score_low" class="hide">
+                <br>Sicher, dass Du nicht aus Gelsenkirchen bist?!?
+              </div>
+              <div style:'font-size=150%' id="score_middle" class="hide">
+                <br>Du passt schon ganz gut in die Stadt, doch ein typischer Dortmunder bist Du – statistisch gesehen – noch nicht. Aber: Es wäre ja auch schlimm, wenn wir alle gleich wären!
+              </div>
+              <div style:'font-size=150%' id="score_high" class="hide">
+                <br>Herzlichen Glückwunsch, in Dir steckt ein ganzer Dortmunder! Dir macht niemand ein X für einen U-Turm vor. Diese Stadt ist genau die richtige für Dich!
+              </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="data/data.js"></script>
+        <script src="js/vendor/highcharts.js"></script>
+        <script src="js/vendor/highcharts-more.js"></script>
+        <script src="js/vendor/treemap.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/charts.js"></script>
+    </body>
+</html>

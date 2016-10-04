@@ -11,7 +11,7 @@ function sortResults(data, prop, asc) {
 /* Highcharts theme */
 
 Highcharts.theme = {
-    colors: ['#00AEEF', '#E2DDD0', '#40C7F4', '#6C8895', '#E41C3B', '#C6EAFA', '#AEA692'],
+    colors: ['#e9594a', '#AEA692', '#00AEEF', '#e9a94a', '#ae9892','#7befde', '#b2e94a', '#92aead','#7b8cef'],
     chart: {
         style: {
             fontFamily: 'Georgia',
@@ -467,6 +467,7 @@ $(function () {
         },
         series: [{
           type: "treemap",
+          colorByPoint: true,
           layoutAlgorithm: 'squarified',
           data: $.extend(true,[],chart3series)
         }]

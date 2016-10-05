@@ -135,11 +135,11 @@ $abschicken1.on("click", function() {
       "<p>Sexualität:<br><strong>" + Math.round(dem_perc[2]*10)/10 + "%</strong> " + dem[2] +
       "<br><strong style='font-size:70%;'>("+Math.round((dem_perc[2] / 78.4331177923922)*10) + "/10 Punkte)</strong>");
     $("#antwort15").html(
-      "<p>Glaube:<br><strong>" + Math.round(dem_perc[3]*10)/10 + "%</strong> " + dem[3] +
-      "<br><strong style='font-size:70%;'>("+Math.round((dem_perc[3] / 30.616767078222)*10) + "/10 Punkte)</strong>");
-    $("#antwort16").html(
       "<p>Schulabschluss:<br><strong>" + Math.round(dem_perc[4]*10)/10 + "%</strong> " + dem[4] +
       "<br><strong style='font-size:70%;'>("+Math.round((dem_perc[4] / 42.4645241070739)*10) + "/10 Punkte)</strong>");
+    $("#antwort16").html(
+      "<p>Glaube:<br><strong>" + Math.round(dem_perc[3]*10)/10 + "%</strong> " + dem[3] +
+      "<br><strong style='font-size:70%;'>("+Math.round((dem_perc[3] / 30.616767078222)*10) + "/10 Punkte)</strong>");
     $('html, body').animate({
       scrollTop: ($block1.offset().top)
     },500);

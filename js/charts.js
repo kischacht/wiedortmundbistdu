@@ -11,7 +11,7 @@ function sortResults(data, prop, asc) {
 /* Highcharts theme */
 
 Highcharts.theme = {
-    colors: ['#00AEEF', '#E2DDD0', '#40C7F4', '#6C8895', '#E41C3B', '#C6EAFA', '#AEA692'],
+    colors: ['#e9594a', '#AEA692', '#00AEEF', '#e9a94a', '#ae9892','#7befde', '#b2e94a', '#92aead','#7b8cef'],
     chart: {
         style: {
             fontFamily: 'Georgia',
@@ -467,6 +467,7 @@ $(function () {
         },
         series: [{
           type: "treemap",
+          colorByPoint: true,
           layoutAlgorithm: 'squarified',
           data: $.extend(true,[],chart3series)
         }]
@@ -479,7 +480,10 @@ $('#do3').click(function(){
   $('#chart3').highcharts().series[0].setData(chart3series);
 });
 
-/* Block 4: Fußballteams: Bubble chart */
+
+
+/* Block 4: Fußballteams: Bar chart */
+
 // array filtern
 chart4data = $.grep(data, function (data) {
   return data.variable === "Fußballteam";
@@ -490,8 +494,54 @@ for (i = 0; i < chart4data.length; i++){
   chart4data[i].shortname = chart4shortnames[i]
 }
 sortResults(chart4data, 'target_percent', asc=false);
-//verwende nur die 20 teams mit der höchsten wertung
-chart4datas = chart4data.slice(0,20)
+
+//verwende nur die 12 teams mit der höchsten wertung
+chart4datas = chart4data.slice(0,12)
+
+// Populate series
+var chart4categories = [];
+var chart4series = [];
+var chart4seriesDE = [];
+for (i = 0; i < chart4datas.length; i++){
+    chart4categories.push(chart4datas[i].shortname);
+    chart4series.push(chart4datas[i].target_percent);
+    chart4seriesDE.push(chart4datas[i].control_percent);
+}
+
+//Chart
+
+$(function () {
+    $('#chart4').highcharts({
+        chart: {
+            type: 'bar',
+            backgroundColor: 'rgba(255,255,255,0.3)',
+        },
+        title: { text: null },
+        tooltip: {
+          formatter: function () {
+              return  "<strong>" + this.x + ":</strong> Etwa " + Math.round(this.y*10)/10 + " %";
+          }
+        },
+        xAxis: {
+          categories: chart4categories,
+          crosshair: true,
+        },
+        legend: { enabled: false },
+        credits: { enabled: false },
+        series: [{
+          colorByPoint: true,
+          data: $.extend(true,[],chart4series),
+        }]
+    });
+});
+$('#de4').click(function(){
+  $('#chart4').highcharts().series[0].setData(chart4seriesDE);
+});
+$('#do4').click(function(){
+  $('#chart4').highcharts().series[0].setData(chart4series);
+});
+
+/*
 // Populate series
 chart4series = []; x = 20; y = 40;
 for (i = 0; i < chart4datas.length; i++){
@@ -556,7 +606,7 @@ $('#de4').click(function(){
 $('#do4').click(function(){
   $('#chart4').highcharts().series[0].setData(chart4series);
 });
-
+*/
 
 /* Block 5: Automarke: Donut */
 

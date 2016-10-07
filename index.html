@@ -9,6 +9,7 @@
         <title>Wie Dortmund bist du?</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="img/favicon.png">
         <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -70,19 +71,29 @@
             <ul class="share-buttons">
               <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&t=Wie%20Dortmund%20bist%20du%3F" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="img/Facebook.png"></a></li>
               <li><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&text=Wie%20Dortmund%20bist%20du%3F%20Teste%20dich%20selbst%20und%20finde%20heraus%20wie%20viel%20Dortmund%20in%20dir%20steckt.%20https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F" target="_blank" title="Tweet"><img alt="Tweet" src="img/Twitter.png"></a></li>
-              <li><a title="More Info"><img alt="More Info" src="img/glyphicon-info-sign.png"></a></li>
+              <li><a title="More Info" id="info-btn">
+                <img alt="More Info" src="img/glyphicon-info-sign.png">
+              </a></li>
             </ul>
           </a>
         </div>
     </div>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">X</span>
+        <h2>Weitere Informationen</h2>
+        <div><p><br>Deine Eingaben bleiben völlig anonym und werden nicht gespeichert oder weiter verarbeitet. Die Daten stammen von dem Meinungsforschungsinstitut YouGov.<br>Mehr über die Daten und dazu, wie Dein persönlicher Dortmund-Punktestand berechnet wird, erfährst Du oben oder in der Seitenleiste beim Klick auf das "Info"-Symbol.</p></div>
+      </div>
 
+    </div>
 
     <div class="jumbotron" id="intro-header">
           <div class="container" id="intro-header-text" style="vertical-align: middle">
             <h1>Wie Dortmund bist du?</h1>
             <p><b>Ob waschechter Ruhrpottler oder frisch zugezogen: Im Herzen ist jeder ein bisschen Dortmund.<br>Teste Dich selbst und finde heraus, wie viel Dortmund Du in dir hast.</b></p>
-            <!--<div class="panel panel-primary" style="margin:15px 0px 15px 0px;padding:10px"><b>Deine Eingaben bleiben völlig anonym und werden nicht gespeichert oder weiter verarbeitet. Die Daten stammen von dem Meinungsforschungsinstitut YouGov.<br>Mehr über die Daten und dazu, wie Dein persönlicher Dortmund-Punktestand berechnet wird, erfährst Du oben oder in der Seitenleiste beim Klick auf das "Info"-Symbol.</b></div>-->
           </div>
     </div>
 

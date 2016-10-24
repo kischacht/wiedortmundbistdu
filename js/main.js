@@ -17,7 +17,14 @@ done = function(){
     if(Math.round(summary*100)>=0 && Math.round(summary*100)<=33) { $('#score_low').removeClass("hide").hide().fadeIn(); };
     if(Math.round(summary*100)>33 && Math.round(summary*100)<=66) { $('#score_middle').removeClass("hide").hide().fadeIn(); };
     if(Math.round(summary*100)>66 && Math.round(summary*100)<=100) { $('#score_high').removeClass("hide").hide().fadeIn(); };
-
+    /* text für die social media shares generieren */
+    $("#twitter-result").attr("href",
+      "https://twitter.com/intent/tweet?source=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&" +
+      "text=Ich%20bin%20zu%20"+ Math.round(summary*100) +
+      "%20Prozent%20ein%20typischer%20Dortmunder%20%E2%80%93%20und%20du?%20https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F");
+    $("#mail-result").attr("href",
+      "mailto:?&subject=Wie Dortmund bist du?&body=Ich%20bin%20zu%20"+ Math.round(summary*100) + 
+      "%20Prozent%20ein%20typischer%20Dortmunder%20%E2%80%93%20und%20du?%0Ahttps%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F")
     $notyet.fadeOut("slow", function(){
       $done.removeClass("hide").hide().fadeIn();
       $('#okscore').addClass('underlay').hide().fadeIn();
@@ -121,7 +128,7 @@ $abschicken1.on("click", function() {
     for(var i = 0; i < dem.length; i++){ if(dem[i] !== "NA") summary1 += dem_perc[i]*dem_base[i] }
     summary1 = summary1 / dem_base_sum
     /* html für den Antwortsatz */
-    antwort1_content = "<p>Im Durchschnitt teilen <strong>" + Math.round(summary1*10)/10 +"%</strong> der befragten Dortmunder eines deiner demographischen Merkmale.</p>";
+    antwort1_content = "<p>Im Durchschnitt teilen <strong>" + Math.round(summary1*10)/10 +"%</strong> der befragten Dortmunder dein demographisches Merkmal.</p>";
     $antwort1.html(antwort1_content);
     $("#antwort11").html(
       "<p>Geschlecht:<strong><br>" + Math.round(dem_perc[0]*10)/10 + "%</strong> " + dem[0] + 
@@ -147,8 +154,8 @@ $abschicken1.on("click", function() {
       /* mit klassen und ids gucken, dass die results eingeblendet werden*/
     $results1.removeClass("hide").hide().fadeIn();
     $("#chart11").highcharts().reflow(); $("#chart12").highcharts().reflow();
-    $("#chart13").highcharts().reflow(); $("#chart14").highcharts().reflow();
-    $("#chart15").highcharts().reflow(); $("#chart16").highcharts().reflow();
+    $("#chart14").highcharts().reflow(); $("#chart15").highcharts().reflow();
+    $("#chart16").highcharts().reflow();
     $ok1.css('visibility','visible').hide().fadeIn();
     done();
     });
@@ -234,26 +241,27 @@ $abschicken3.on("click", function() {
     /* Prozentangabem für Input suchen, als Array speichern */
     var bier_perc = [];
     for(var j = 0; j < bier.length; j++){
-      for(var i = 0; i < data.length; i++){
+      for(var i = 0; i < data.length; i++) {
        if(data[i].answer === bier[j] && data[i].variable === "Biersorten"){
-           bier_perc.push(data[i].target_percent);
-         }
+           bier_perc[j] = data[i].target_percent;
+       }
       };
     };
     /* durchschnitt der prozentsätze */
     let biersum = 0;
     for(var i = 0; i < bier_perc.length; i++) {
-        biersum += bier_perc[i];
+        if(bier_perc[i] == Math.max.apply(null, bier_perc)) bier_max = bier[i];
     };
     if(bier.length > 1){ biername = [bier.slice(0,bier.length-1).join("</strong>, <strong>"),bier[bier.length-1]].join("</strong> und <strong>") };
     if(bier.length == 1) {biername = bier};
-    user_percent[7] = (biersum/bier.length);
+    user_percent[7] = Math.max.apply(null, bier_perc);
     user_answers[7] = biername;
     /* html für den Antwortsatz */
-    antwort3_content = "<p>Eine der Biersorten <strong>" + biername +
-                       "</strong> trinken im Durchschnitt auch etwa <strong>" + Math.round((biersum/bier.length)*10)/10 + "%</strong> der Dortmunder.</p>";
+    antwort3_content = "<p>Du trinkst am liebsten <strong>" + biername +
+                       "</strong>.<br> Am beliebtesten ist davon <strong>" + bier_max + "</strong>. Dieses Bier trinken etwa <strong>" +
+                       Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder ebenfalls am liebsten.</p>";
     if(bier == "keine Angabe" || bier == "weiß nicht" || bier == "trifft nicht zu" || bier == "Sonstige Biersorten"){
-      antwort3_content = "<p>Etwa <strong>" + Math.round((biersum/bier.length)*10)/10 + "%</strong> der Dortmunder haben auch angegeben: <strong>" + bier + "</strong>.</p>";
+      antwort3_content = "<p>Etwa <strong>" + Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder haben auch angegeben: <strong>" + bier + "</strong>.</p>";
     }
     $antwort3.html(antwort3_content);
     /*hochscrollen, results einblenden */
@@ -264,7 +272,7 @@ $abschicken3.on("click", function() {
     $results3.removeClass("hide").hide().fadeIn();
     $("#chart3").highcharts().reflow();
     $ok3.css('visibility','visible').hide().fadeIn();
-    $("#p3").append(' <span>('+Math.round(((biersum/bier.length) / 49.0196559550938)*10) + '/10 Punkte)</span>').hide().fadeIn();
+    $("#p3").append(' <span>('+Math.round(((Math.max.apply(null, bier_perc)) / 49.0196559550938)*10) + '/10 Punkte)</span>').hide().fadeIn();
     done();
     });
   }

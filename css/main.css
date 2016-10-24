@@ -3,10 +3,20 @@ div {
     padding-bottom: 0.35%;
 }
 
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus{
+  cursor: default;
+  color: #333333;
+}
+
 body {
   font-family: 'Georgia';
   text-align: left;
   padding-bottom: 20px;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 h1, h2, li, .list-group-item.disabled {
@@ -31,7 +41,7 @@ h2 span { font-size:70%; }
 
 .jumbotron {
   background: #ffffff;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -110,6 +120,43 @@ h2 span { font-size:70%; }
     max-height: 50px;
     max-width: 70%;
 }
+
+/* Social media buttons */
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  font-size: 170%;
+  right: 2%;
+  top: 15%;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+ul.share-buttons img{
+  width: 3.5vw;
+  max-width:38px;
+  min-width: 20px;
+}
+
 
 
 /* Sidebar Styles */
@@ -237,37 +284,6 @@ h2 span { font-size:70%; }
     }
 }
 
-/* Social media buttons */
-
-ul.share-buttons{
-  list-style: none;
-  padding: 0;
-  position: absolute;
-  font-size: 170%;
-  right: 2%;
-  top: 20%;
-}
-
-ul.share-buttons li{
-  display: inline;
-}
-
-ul.share-buttons .sr-only {
-  position: absolute;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
-ul.share-buttons img{
-  width: 3.5vw;
-  max-width:38px;
-  min-width: 15px;
-}
 
 /* Info Box */
 
@@ -291,9 +307,9 @@ ul.share-buttons img{
     position: relative;
     background-color: #fefefe;
     margin: 10% auto;
-    padding: 3%;
+    padding: 5% 10% 5% 10%;
     border: 1px solid #888;
-    width: 80%;
+    width: 70%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -314,7 +330,6 @@ ul.share-buttons img{
 
 /* The Close Button */
 .close {
-    color: black;
     float: right;
     font-size: 150%;
     font-weight: bold;

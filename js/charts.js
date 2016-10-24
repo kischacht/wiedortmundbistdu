@@ -92,11 +92,11 @@ $(function () {
     $('.highcharts-axis').css('display','none');
 });
 
-/* chart 1.2: geschlecht */
+/* chart 1.2: alter */
 // array filtern
 chart12data = $.grep(data, function (data) {
   return data.variable === "Alter";
-}); sortResults(chart12data, 'target_percent', asc=false);
+}); sortResults(chart12data, 'answer', asc=false);
 // Populate series
 var chart12series = [];
 for (i = 0; i < chart12data.length; i++){
@@ -144,62 +144,6 @@ $(function () {
             },
         },
         series: $.extend(true,[],chart12series),
-    });
-    $('.highcharts-axis').css('display','none');
-});
-
-/* chart 1.3: migrationshintergrund */
-// array filtern
-chart13data = $.grep(data, function (data) {
-  return data.variable === "Migrationshintergrund";
-}); sortResults(chart13data, 'target_percent', asc=false);
-// Populate series
-var chart13series = [];
-for (i = 0; i < chart13data.length; i++){
-    chart13series.push({
-      name: chart13data[i].answer,
-      data: [chart13data[i].target_percent],
-    });
-}
-var chart13seriesDE = [];
-for (i = 0; i < chart13data.length; i++){
-    chart13seriesDE.push(chart13data[i].control_percent);
-}
-$(function () {
-    $('#chart13').highcharts({
-        chart: {
-            backgroundColor: null,
-            type: 'bar',
-            margin: [0,0,0,0]
-        },
-        title: {text: ''},
-        xAxis: {enabled: false,},
-        yAxis: {enabled: false,},
-        legend: {enabled: false,},
-        credits: {enabled: false,},
-        tooltip: {
-            formatter: function() {
-                return "<strong>" + this.series.name + ":</strong> Etwa " + Math.round(this.y*10)/10 + " %";
-            }
-        },
-        plotOptions: {
-            series: {
-                stacking: 'percent',
-                pointPadding: 0,
-                groupPadding: 0,
-                dataLabels: {
-                    enabled: true,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black'
-                    },
-                    formatter: function() {
-                        return "<strong>" + this.series.name + "</strong>";
-                    }
-                }
-            },
-        },
-        series: $.extend(true,[],chart13series),
     });
     $('.highcharts-axis').css('display','none');
 });
@@ -288,7 +232,7 @@ $(function () {
     });
 });
 
-/* chart 1.4: sexuelle orientierung */
+/* chart 1.6: glaube */
 // array filtern
 chart16data = $.grep(data, function (data) {
   return data.variable === "Glaube";
@@ -332,7 +276,6 @@ $(function () {
 $('#de1').click(function(){
   var chart11 = $('#chart11').highcharts();
   var chart12 = $('#chart12').highcharts();
-  var chart13 = $('#chart13').highcharts();
   var chart14 = $('#chart14').highcharts();
   var chart15 = $('#chart15').highcharts();
   var chart16 = $('#chart16').highcharts();
@@ -342,9 +285,6 @@ $('#de1').click(function(){
   for(i = 0; i < chart12.series.length; i++) {
     chart12.series[i].setData([chart12seriesDE[i]]);
   };
-  for(i = 0; i < chart13.series.length; i++) {
-    chart13.series[i].setData([chart13seriesDE[i]]);
-  };
   chart14.series[0].setData(chart14seriesDE);
   chart15.series[0].setData(chart15seriesDE);
   chart16.series[0].setData(chart16seriesDE);
@@ -352,7 +292,6 @@ $('#de1').click(function(){
 $('#do1').click(function(){
   var chart11 = $('#chart11').highcharts();
   var chart12 = $('#chart12').highcharts();
-  var chart13 = $('#chart13').highcharts();
   var chart14 = $('#chart14').highcharts();
   var chart15 = $('#chart15').highcharts();
   var chart16 = $('#chart16').highcharts();
@@ -361,9 +300,6 @@ $('#do1').click(function(){
   };
   for(i = 0; i < chart12.series.length; i++) {
     chart12.series[i].setData([chart12series[i].data]);
-  };
-  for(i = 0; i < chart13.series.length; i++) {
-    chart13.series[i].setData([chart13series[i].data]);
   };
   chart14.series[0].setData(chart14series);
   chart15.series[0].setData(chart15series);
@@ -512,6 +448,7 @@ for (i = 0; i < chart4datas.length; i++){
 
 $(function () {
     $('#chart4').highcharts({
+        colors: ['#FFFF00', '#afafaf', '#E1003C', '#cecece', '#5098f8', '#0B4A9E', '#1E9054', '#CC0000', '#E32221', '#ED232A', '#5a5a5a', '#0065AF'],
         chart: {
             type: 'bar',
             backgroundColor: 'rgba(255,255,255,0.3)',

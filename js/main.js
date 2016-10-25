@@ -258,7 +258,8 @@ $abschicken3.on("click", function() {
     user_answers[7] = biername;
     /* html für den Antwortsatz */
     antwort3_content = "<p>Du trinkst am liebsten <strong>" + biername +
-                       "</strong>.<br> Am beliebtesten ist davon <strong>" + bier_max + "</strong>. Dieses Bier trinken etwa <strong>" +
+                       ( bier.length > 1 ?  "</strong>.<br> Am beliebtesten ist davon <strong>" + bier_max : "" ) +
+                       "</strong>. Dieses Bier trinken etwa <strong>" +
                        Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder ebenfalls am liebsten.</p>";
     if(bier == "keine Angabe" || bier == "weiß nicht" || bier == "trifft nicht zu" || bier == "Sonstige Biersorten"){
       antwort3_content = "<p>Etwa <strong>" + Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder haben auch angegeben: <strong>" + bier + "</strong>.</p>";

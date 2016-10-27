@@ -128,7 +128,7 @@ $abschicken1.on("click", function() {
     for(var i = 0; i < dem.length; i++){ if(dem[i] !== "NA") summary1 += dem_perc[i]*dem_base[i] }
     summary1 = summary1 / dem_base_sum
     /* html für den Antwortsatz */
-    antwort1_content = "<p>Im Durchschnitt teilen <strong>" + Math.round(summary1*10)/10 +"%</strong> der befragten Dortmunder dein demographisches Merkmal.</p>";
+    antwort1_content = "<p>Im Durchschnitt teilen <strong>" + Math.round(summary1*10)/10 +"%</strong> der befragten Dortmunder deine demographischen Merkmale.</p>";
     $antwort1.html(antwort1_content);
     $("#antwort11").html(
       "<p>Geschlecht:<strong><br>" + Math.round(dem_perc[0]*10)/10 + "%</strong> " + dem[0] + 
@@ -454,15 +454,19 @@ $abschicken6.on("click", function() {
 
 // Get the modal
 var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
+//Get the button that opens the modal
 var btn = document.getElementById("info-btn");
+//Get the link that opens the modal
+var link = document.getElementById("info-link");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
+// When the user clicks on the button or the link, open the modal
 btn.onclick = function() {
+    modal.style.display = "block";
+}
+link.onclick = function() {
     modal.style.display = "block";
 }
 

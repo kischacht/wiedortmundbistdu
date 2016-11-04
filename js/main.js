@@ -1,5 +1,6 @@
 /* Endergebnis einblenden, wenn alle Fragen beantwortet sind */
 done = function(){
+  console.log(user_percent, user_maxpercent, user_answers, Math.round(1.23456));
   $score = $('#score');
   $notyet = $('#notyet');
   $done = $('#done');
@@ -10,20 +11,22 @@ done = function(){
     base_sum = 0;
     for(var i = 0; i < user_base.length; i++){ if(user_answers[i] !== "NA") base_sum += user_base[i] }
     summary = 0;
-    for(var i = 0; i < dem.length; i++){ if(dem[i] !== "NA") summary += (user_percent[i]/user_maxpercent[i])*user_base[i] }
-    summary = summary / base_sum;
+    //user_percent/user_maxpercent = anteil von 100, der erreicht wurde pro frage
+    //gewichtung der fragen:
+    for(var i = 0; i < user_percent.length; i++){ if(user_answers[i] !== "NA") summary += Math.round((user_percent[i]/user_maxpercent[i])*10)}
+    //summary = summary / base_sum;
     /* ergebnis und zugehörigen spruch einblenden */
-    $("#endscore").html(Math.round(summary*100) + '/100').hide().fadeIn();
-    if(Math.round(summary*100)>=0 && Math.round(summary*100)<=33) { $('#score_low').removeClass("hide").hide().fadeIn(); };
-    if(Math.round(summary*100)>33 && Math.round(summary*100)<=66) { $('#score_middle').removeClass("hide").hide().fadeIn(); };
-    if(Math.round(summary*100)>66 && Math.round(summary*100)<=100) { $('#score_high').removeClass("hide").hide().fadeIn(); };
+    $("#endscore").html(Math.round(summary) + '/100').hide().fadeIn();
+    if(Math.round(summary)>=0 && Math.round(summary)<=33) { $('#score_low').removeClass("hide").hide().fadeIn(); };
+    if(Math.round(summary)>33 && Math.round(summary)<=66) { $('#score_middle').removeClass("hide").hide().fadeIn(); };
+    if(Math.round(summary)>66 && Math.round(summary)<=100) { $('#score_high').removeClass("hide").hide().fadeIn(); };
     /* text für die social media shares generieren */
     $("#twitter-result").attr("href",
       "https://twitter.com/intent/tweet?source=https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F&" +
-      "text=Ich%20bin%20zu%20"+ Math.round(summary*100) +
+      "text=Ich%20bin%20zu%20"+ Math.round(summary) +
       "%20Prozent%20ein%20typischer%20Dortmunder%20%E2%80%93%20und%20du?%20https%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F");
     $("#mail-result").attr("href",
-      "mailto:?&subject=Wie Dortmund bist du?&body=Ich%20bin%20zu%20"+ Math.round(summary*100) + 
+      "mailto:?&subject=Wie Dortmund bist du?&body=Ich%20bin%20zu%20"+ Math.round(summary) + 
       "%20Prozent%20ein%20typischer%20Dortmunder%20%E2%80%93%20und%20du?%0Ahttps%3A%2F%2Fkischacht.github.io%2Fwiedortmundbistdu%2F")
     $notyet.fadeOut("slow", function(){
       $done.removeClass("hide").hide().fadeIn();
@@ -189,7 +192,7 @@ var $ok2 = $("#ok2");
 
 $abschicken2.on("click", function() {
   if(partei !== null) {
-    user_answers[6] = partei; user_percent[6]=partei_perc;
+    user_answers[5] = partei; user_percent[5]=partei_perc;
     $antwort2.html("<p>Etwa <strong>" + Math.round(partei_perc*10)/10 + "%</strong> der Dortmunder neigen auch <strong>" +
       partei + "</strong> zu.</p>");
     if(partei == "Ich neige keiner Partei zu"){
@@ -254,13 +257,13 @@ $abschicken3.on("click", function() {
     };
     if(bier.length > 1){ biername = [bier.slice(0,bier.length-1).join("</strong>, <strong>"),bier[bier.length-1]].join("</strong> und <strong>") };
     if(bier.length == 1) {biername = bier};
-    user_percent[7] = Math.max.apply(null, bier_perc);
-    user_answers[7] = biername;
+    user_percent[6] = Math.max.apply(null, bier_perc);
+    user_answers[6] = biername;
     /* html für den Antwortsatz */
-    antwort3_content = "<p>Du trinkst am liebsten <strong>" + biername +
+    antwort3_content = "<p>Du trinkst des Öfteren <strong>" + biername +
                        ( bier.length > 1 ?  "</strong>.<br> Am beliebtesten ist davon <strong>" + bier_max : "" ) +
                        "</strong>. Dieses Bier trinken etwa <strong>" +
-                       Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder ebenfalls am liebsten.</p>";
+                       Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder ebenfalls häufig.</p>";
     if(bier == "keine Angabe" || bier == "weiß nicht" || bier == "trifft nicht zu" || bier == "Sonstige Biersorten"){
       antwort3_content = "<p>Etwa <strong>" + Math.round((Math.max.apply(null, bier_perc))*10)/10 + "%</strong> der Dortmunder haben auch angegeben: <strong>" + bier + "</strong>.</p>";
     }
@@ -319,7 +322,7 @@ $abschicken4.on("click", function() {
          input4_perc = data[i].target_percent;
        }
      };
-     user_answers[8] = $input4.val(); user_percent[8] = input4_perc;
+     user_answers[7] = $input4.val(); user_percent[7] = input4_perc;
      /* html für den Antwortsatz */
     antwort4_content = "<p>Etwa <strong>" + Math.round(input4_perc*10)/10 + "%</strong> der Dortmunder sind auch Fan von <strong>" + $input4.val() +"</strong>.</p>";
     if($input4.val() == "keine Angabe" || $input4.val() == "weiß nicht" || $input4.val() == "Andere/kein Fußballfan"){
@@ -383,10 +386,10 @@ $abschicken5.on("click", function() {
      };
      /* html für den Antwortsatz */
     antwort5_content = "<p>Etwa <strong>" + Math.round(input5_perc*10)/10 + "%</strong> der Dortmunder fahren auch hauptsächlich einen <strong>" + $input5.val() +"</strong>.</p>";
-    if($input5.val() == "keine Angabe" || $input5.val() == "weiß nicht" || $input5.val() == "trifft nicht zu" || $input5.val() == "Sonstige"){
+    if($input5.val() == "keine Angabe" || $input5.val() == "weiß nicht" || $input5.val() == "ich fahre kein Auto" || $input5.val() == "Sonstige"){
       antwort5_content = "<p>Etwa <strong>" + Math.round(input5_perc*10)/10 + "%</strong> der Dortmunder haben auch angegeben: <strong>" + $input5.val() +"</strong>.</p>";
     }
-    user_answers[9] = $input5.val(); user_percent[9] = input5_perc;
+    user_answers[8] = $input5.val(); user_percent[8] = input5_perc;
     $antwort5.html(antwort5_content);
     /*hochscrollen, results einblenden */
     $('html, body').animate({
@@ -429,7 +432,7 @@ var $ok6 = $("#ok6");
 $abschicken6.on("click", function() {
   if(hundkatze !== null) {
     /* html für den Antwortsatz */
-    user_answers[10] = hundkatze;user_percent[10] = hundkatze_perc;
+    user_answers[9] = hundkatze;user_percent[9] = hundkatze_perc;
     antwort6_content = "<p>Etwa <strong>" + Math.round(hundkatze_perc*10)/10 + "%</strong> der befragten Dortmunder bezeichnen sich auch als <strong>" + hundkatze + ".</strong></p>";
     if(hundkatze == "Weder noch" || hundkatze == "Weiß nicht/Keine Angabe"){
       antwort6_content = "<p>Etwa <strong>" + Math.round(hundkatze_perc*10)/10 + "%</strong> der befragten Dortmunder haben auch angegeben: <strong>" + hundkatze + ".</strong></p>";

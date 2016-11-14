@@ -1,22 +1,19 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="de"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="de"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="de"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Wie Dortmund bist du?</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="img/favicon.png">
         <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-bottom: 20px;
-            }
-        </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
 
@@ -26,16 +23,16 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->  
-    <!-- Main jumbotron for a primary marketing message or call to action -->
 
     <div id="wrapper">
+
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a href="#" class="underlay">Start</a></li>
             <li>
                 <a href="#block1">Menschen
-                <span id="ok1" class="glyphicon glyphicon-ok pull-right aria-hidden='true'"></span></a>
+                <span id="ok1" class="glyphicon glyphicon-ok pull-right"></span></a>
             </li>
             <li>
                 <a href="#block2">Politik
@@ -61,20 +58,76 @@
                 <a href="#score" id="okscore">Dein Ergebnis</a>
             </li>
         </ul>
-        <div id="info-nav"><span class="glyphicon glyphicon-info-sign pull-right"></span></div>
     </div>
+
     <!-- Page content -->
     <div id="page-content-wrapper">
-    <div class="page-header" id="intro"><h1>Wie Dortmund bist du?</h1></div>
-    <div class="jumbotron">
-          <div class="container" style:'font-size=150%'>
-            Ob waschechter Ruhrpottler oder frisch zugezogen: Im Herzen sind wir alle ein bisschen Dortmund. Teste Dich selbst und finde heraus, wie viel Dortmund du in dir hast.<br> Sobald Du die Fragen beantwortest, kannst du Deine Ergebnisse mit dem Rest von Dortmund und mit ganz Deutschland vergleichen.
-            <div class="panel panel-primary" style="padding:5px">Deine Eingaben bleiben völlig anonym und werden nicht gespeichert oder weiter verarbeitet. Die Daten stammen von dem Meinungsforschungsinstitut YouGov.<br>Mehr über die Daten und dazu, wie Dein persönlicher Dortmund-Punktestand berechnet wird, erfährst du oben oder in der Seitenleiste beim Klick auf das "Info"-Symbol.</div>
-          </div>
+
+    <!-- Top nav bar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header pull-left">
+          <a class="navbar-brand" href="#">
+            <img alt="Ruhrnachrichten.de" src="img/RN_Online_Logo_4c.png" id="rn-img">
+            <ul class="share-buttons">
+              <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=rn.de%2FWieDortmundBistDu&t=Wie%20Dortmund%20bist%20du%3F" title="Share on Facebook" target="_blank">
+                  <i class="fa fa-facebook-official" style="color:#4862A3"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/intent/tweet?source=rn.de%2FWieDortmundBistDu&text=Wie%20Dortmund%20bist%20du%3F%20Teste%20dich%20selbst%20und%20finde%20heraus%20wie%20viel%20Dortmund%20in%20dir%20steckt.%20rn.de%2FWieDortmundBistDu" target="_blank" title="Tweet">
+                  <i class="fa fa-twitter" style="color:#55ACEE"></i>
+                </a>
+              </li>
+              <li>
+                <a title="More Info" id="info-btn">
+                <i class="fa fa-info-circle" style="color:#E41C3B"></i>
+              </li>
+            </ul>
+          </a>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close"><i class="fa fa-times"></i></span>
+        <h2>So funktioniert das Quiz</h2>
+        <p><br>
+          Sobald du deine Antwort abschickst, zeigt unser Quiz dir, wie die Dortmunder und die Menschen in ganz Deutschland geantwortet haben. Die Daten dafür stammen aus Online-Umfragen des Marktforschungsinstituts <a href="https://www.yougov.de/" target="_blank">YouGov</a>.
+          </p><p>Das Institut gewichtet die Antworten, die es bekommt, nach Faktoren wie Alter, Geschlecht und Ähnlichem, damit die Zahlen die Realität möglichst repräsentativ abbilden. Trotzdem kann es zu Abweichungen kommen. Über den Grafiken siehst du jeweils, wie viele Dortmunder YouGov zu diesem Thema befragt hat.
+        </p>
+        <p>
+          Zusätzlich zu den Grafiken siehst du, wieviel Prozent der befragten Dortmunder genauso geantwortet haben wie du. Danach richten sich auch die Punkte, die du für deine Antwort erhälst.</p><p>Fünf von zehn Punkten bekommst du zum Beispiel, wenn deiner Antwort 20% der Dortmunder zugestimmt haben, der beliebtesten Antwort aber 40%. Kurz: Je typischer deine Antwort für Dortmund ist, desto besser schneidest du ab.
+        </p>
+        <p>
+          Deine Eingaben bleiben anonym und werden von uns weder gespeichert noch weiter verarbeitet.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="jumbotron" id="intro-header">
+      <div class="container" id="intro-header-text" style="vertical-align: middle">
+        <h1>Wie Dortmund bist du?</h1>
+        <p><b>Rund 600.000 Menschen leben in Dortmund - vom waschechten Ruhrpöttler bis zum frisch Zugezogenen. Wie viel Dortmund steckt in dir? Teste dich selbst und finde es heraus.</b></p>
+      </div>
+    </div>
+
+    <div class="jumbotron" style="padding-bottom:0">
+      <div class="list-group-item disabled">
+        <p>
+          Das Meinungsforschungsinstitut <a href="https://www.yougov.de/" target="_blank">YouGov</a> hat per Umfragen die Daten zahlreicher Dortmunder erfasst. Daraus haben wir einen Fragebogen zusammengestellt. Sobald du eine Frage beantwortest, kannst du sehen, wie die Menschen in Dortmund und ganz Deutschland geantwortet haben. Du erhälst umso mehr Punkte, je mehr Dortmunder die gleiche Antwort gegeben haben wie du. Die volle Punktzahl bekommst du, wenn deine Antwort die gleiche ist wie die des größten Teils der Dortmunder.
+        </p>
+        <p>
+          Mehr Hintergründe zur Systematik findest du <a id="info-link">hier</a>.
+        </p>
+      </div>
     </div>
 
     <!-- FRAGENBLOCK 1 -->
-    <div class="jumbotron">
+    <div class="jumbotron" style="padding-top:24px">
             <div class="container" id="block1"><h2>Menschen</h2></div>
     <!-- FRAGEN 1 -->
             <div class="container">
@@ -104,18 +157,6 @@
                   <button type="button" id="alter4" class="btn btn-secondary">55 Jahre und älter
                   </button>
                   <button type="button" id="alterNA" class="btn btn-secondary">keine Angabe</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Migrationshintergrund -->              
-              <div class="list-group">
-                <div class="list-group-item disabled">Hast du einen Migrationshintergrund?
-                </div>
-                <div class="list-group-item">
-                  <div class="btn-group" role="group" aria-label="...">
-                  <button type="button" id="mh-ja" class="btn btn-secondary">ja</button>
-                  <button type="button" id="mh-nein" class="btn btn-secondary">nein</button>
-                  <button type="button" id="mhNA" class="btn btn-secondary">keine Angabe</button>
                   </div>
                 </div>
               </div>
@@ -188,7 +229,7 @@
                   <input type="radio" name="religion" value="jüdisch"> jüdisch
                 </div>
                 <div class="list-group-item">
-                  <input type="radio" name="religion" value="keinem"> keinem
+                  <input type="radio" name="religion" value="ich habe keinen"> ich habe keinen
                 </div>
                 <div class="list-group-item">
                   <input type="radio" name="religion" value="sonstiger Glaube"> sonstiger Glaube
@@ -199,7 +240,7 @@
               </div></div>
               </div> <!-- /row -->
               <button type="button" id="abschicken1" class="btn bluebtn">Antworten abschicken</button>
-              <div id="alert1" class="alert alert-warning alert-dismissible hide" role="alert">
+              <div id="alert1" class="customalert hide" role="alert">
                 Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
               </div>
             </div>  <!-- /#frage1 -->
@@ -208,19 +249,17 @@
             <div id="results1" class="results hide">
               <div id="antwort1"></div>
               <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
+                <div class="col-lg-6 col-md-6 col-sm-6 underlay">
                   <div id="antwort11" class="col-md-12"></div></div>
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
+                <div class="col-lg-6 col-md-6 col-sm-6 underlay">
                   <div id="antwort12" class="col-md-12"></div></div>
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
-                  <div id="antwort13" class="col-md-12"></div></div>
               </div>
-              <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
+              <div class="row underlay">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                   <div id="antwort14" class="col-md-12"></div></div>
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                   <div id="antwort15" class="col-md-12"></div></div>
-                <div class="col-lg-4 col-md-4 col-sm-4 underlay">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                   <div id="antwort16" class="col-md-12"></div></div>
               </div>
               <!-- CHARTS -->
@@ -230,31 +269,38 @@
               </div>
               <span><span class="glyphicon glyphicon-arrow-left aria-hidden='true'"></span> Hier klicken, um zwischen den Daten für Dortmund und Deutschland zu wechseln.</span>
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6  col-xs-6">
-                  Geschlecht (n=463)
-                  <div id="chart11"></div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6  col-xs-6">
-                  Migrationshintergrund (n=283)<div id="chart13"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row chart-title">Geschlecht (befragte Dortmunder=463)</div>
+                  <div class="row"><div id="chart11"></div></div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                  Alter (n=463)<div id="chart12"></div>
+                  <div class="row chart-title">Alter (befragte Dortmunder=463)</div>
+                  <div class="row">
+                    <div id="chart12"></div>
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  Sexuelle Orientierung (n=248)<div id="chart14"></div>
+                  <div class="row chart-title">Sexuelle Orientierung (befragte Dortmunder=248)</div>
+                  <div class="row"><div id="chart14"></div></div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  Schulabschluss (n=413)<div id="chart15"></div>
+                  <div class="row chart-title">Schulabschluss (befragte Dortmunder=413)</div>
+                  <div class="row"><div id="chart15"></div></div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                  Glaube (n=286)<div id="chart16"></div>
+                  <div class="row chart-title">Glaube (befragte Dortmunder=286)</div>
+                  <div class="row"><div id="chart16"></div></div>
                 </div>
               </div>
-              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+              <div>
+                <br>Auch heute noch zeigen es die Umfragen: Dortmund ist <a href="http://www.ruhrnachrichten.de/staedte/dortmund/Daten-Spezial-Starker-Rueckgang-immer-weniger-Christen-in-Dortmund" target="_blank">traditionell protestantisch</a>. Während die Katholiken und die Evangelen deutschlandweit nach YouGov fast gleichauf liegen, hat der evangelisch-lutherische Glaube in Dortmund noch immer einen Vorsprung.<br>
+                Wie alt die Dortmunder sind, die einem auf der Straße begegnen, hängt außerdem ganz vom Viertel ab: Im Univiertel Eichlinghofen sind <a href="http://www.ruhrnachrichten.de/staedte/dortmund/44137-Dortmund~/Daten-Serie-Heimatkunde-Wo-Dortmunds-Studenten-und-Rentner-wohnen;art930,2920760" target = "_blank">über ein Viertel der Bevölkerung zwischen 18 und 25</a>, während es in Brünninghausen nur knapp über sieben Prozent sind. <br>
+                Die Daten, die für dieses Quiz verwendet wurden, können unter Umständen von der Realität abweichen. Mehr zu den Erhebungsmethoden findet ihr unter <a href="https://www.yougov.de/" target="_blank">YouGov.de</a> und oben rechts in unserem Infokasten.
+              </div>
             </div>
         </div>
     </div>
@@ -265,7 +311,7 @@
             <div id="frage2">
                 <div class="list-group">
                 <div class="list-group-item disabled">
-                  Neigen Sie einer bestimmten Partei zu? Und wenn ja, welcher?
+                  Neigst du einer bestimmten Partei zu? Und wenn ja, welcher?
                 </div>
                 <div class="list-group-item">
                   <input type="radio" name="partei" value="SPD"> SPD</div>
@@ -289,10 +335,10 @@
                   <input type="radio" name="partei" value="Andere Partei"> Andere Partei
                 </div>
                 <div class="list-group-item">
-                  <input type="radio" name="partei" value="Ich neige keiner Partei zu"> Ich neige keiner Partei zu</div>
+                  <input type="radio" name="partei" value="ich neige keiner Partei zu"> ich neige keiner Partei zu</div>
               </div>
               <button type="button" id="abschicken2" class="btn bluebtn">Antworten abschicken</button>
-              <div id="alert2" class="alert alert-warning alert-dismissible hide" role="alert">
+              <div id="alert2" class="customalert hide" role="alert">
                 Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
               </div>              
             </div>
@@ -303,9 +349,11 @@
                   <button type="button" id="do2" class="tglbtn btn btn-secondary active">DO</button>
                   <button type="button" id="de2" class="tglbtn btn btn-secondary">DE</button>
               </div>
-              <span> (n=400)</span>
+              <span> (befragte Dortmunder=400)</span>
               <div id="chart2"></div>
-              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+              <div style:'font-size=150%'>
+                Seit 1946 ist die SPD die stärkste Kraft in Dortmund – <a href="http://www.ruhrnachrichten.de/staedte/dortmund/44137-Dortmund~/Ratswahl-Spezial-So-hat-Dortmund-seit-1946-gewaehlt;art930,2348376" target="_blank">bei fast jeder Wahl</a>. Nur einmal, bei der Ratswahl 1999, überholte die CDU die SPD um ganze 0,7 Prozentpunkte.<br>
+                <a href="http://www.ruhrnachrichten.de/staedte/dortmund/44137-Dortmund~/Interaktiver-Rueckblick-Dortmunds-Oberbuergermeister-der-Nachkriegszeit;art930,2348530" target="_blank">Die Bürgermeister Dortmunds</a> stammen bisher jedoch ausnahmslos aus der SPD. Fritz Henßler, der erste Dortmunder Bürgermeister nach dem zweiten Weltkrieg, war außerdem Widerstandskämpfer gegen das Nazi-Regime. Acht Jahre lang saß er dafür im Konzentrationslager Sachsenhausen.</div>
             </div>
         </div>
     </div>
@@ -347,7 +395,7 @@
                   <input type="radio" name="bier" value="keine Angabe"> keine Angabe</div>
             </div><!-- /list group -->
             <button type="button" id="abschicken3" class="btn bluebtn">Antworten abschicken</button>
-            <div id="alert3" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert3" class="customalert hide" role="alert">
               Die Ergebnisse werden angezeigt, sobald du die Frage beantwortest.
             </div>
           </div> <!-- /#frage3 -->
@@ -358,9 +406,9 @@
                   <button type="button" id="do3" class="tglbtn btn btn-secondary active">DO</button>
                   <button type="button" id="de3" class="tglbtn btn btn-secondary">DE</button>
               </div>
-              <span> (n=144)</span>
+              <span> (befragte Dortmunder=144)</span>
               <div id="chart3"></div>
-              <div style:'font-size=150%'> Nach den Daten dieser Umfrage zu urteilen, sind die Dortmunder nicht wählerischer als der Rest von Deutschland, was die Sorte ihres Bieres angeht. Hauptsache, die Größe stimmt. Dabei darf es ruhig auch mal etwas kleiner sein: Das Dortmunder Stößchen, ursprünglich für die Arbeiter als schneller Bier für den Heimweg erfunden, fasst nur 0,1 Liter. ...</div>
+              <div><br>Nach den Daten dieser Umfrage zu urteilen, sind die Dortmunder nicht wählerischer als der Rest von Deutschland, was die Sorte ihres Bieres angeht. Hauptsache, die Größe stimmt. Dabei darf es ruhig auch mal etwas kleiner sein: Das Dortmunder Stößchen fasst stolze 0,1 Liter Bier und hat hier eine lange Tradition. Ursprünglich wurde es für die Arbeiter auf dem Heimweg erfunden. Sie mussten oft lange an der Bahnschranke warten, die das Industriegebiet von den Wohnvierteln trennte. Gerade genug Zeit für ein kleines Wegbierchen.</div>
             </div>
         </div>
     </div>
@@ -370,7 +418,7 @@
             <div id="frage4">
               <div class="list-group">
                 <div class="list-group-item disabled">
-                  Welcher ist Dein Lieblings-Fußballverein?
+                  Welcher ist dein Lieblings-Fußballverein?
                 </div>
                 <div class="list-group-item">
                   <div class="input-group">
@@ -393,7 +441,7 @@
                <input type="radio" name="fussball" value="keine Angabe"> keine Angabe
              </div>
             </div><!-- /list group -->
-            <div id="alert4" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert4" class="customalert hide" role="alert">
               Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
             </div>  
           </div> <!-- /#frage4 -->
@@ -403,9 +451,15 @@
                   <button type="button" id="do4" class="tglbtn btn btn-secondary active">DO</button>
                   <button type="button" id="de4" class="tglbtn btn btn-secondary">DE</button>
               </div>
-              <span> (n=188)</span>
+              <span> (befragte Dortmunder=188)</span>
               <div id="chart4"></div>
-              <div style:'font-size=150%'> In Dortmund ist natürlich der BVB mit Abstand der beliebteste Verein. Nach YouGov-Schätzungen ist er der Lieblingsverein von 7 von 10 Dortmundern. Deutschlandweit sind es nur einer von 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam.</div>
+              <div>
+                <br>
+                Hier trennt sich die Spreu vom Weizen, ähm, der Dortmunder vom Stadtfremden. Denn Dortmund ist Fußballstadt, daran besteht kein Zweifel: Während in ganz Deutschland fast 40 Prozent angeben, sich gar nicht für Fußball zu interessieren, sind es in Dortmund nicht einmal 15. 
+                Wer bei dieser Frage Punkte machen will, hält natürlich zum BVB: Nach den YouGov-Schätzungen ist er der Lieblingsverein von 7 von 10 Dortmundern.<br>
+                Selbst Bayern München schafft in Dortmund nicht einmal die Fünf-Prozent-Hürde, obwohl der Rekordmeister in ganz Deutschland als einziger Verein mehr Fans hat als Dortmund.<br>
+                Außerdem wenig überraschend: Schalke 04, der ohnehin Lieblingsverein von weniger als 3 Prozent der deutschen Bevölkerung ist, büßt in Dortmund zusätzlich ein und kommt nur auf magere 2 Prozent.
+              </div>
             </div>
         </div>
     </div>
@@ -415,7 +469,7 @@
             <div id="frage5">
               <div class="list-group">
                 <div class="list-group-item disabled">
-                  Von welchem Hersteller ist Dein hauptsächlich genutzter PKW?
+                  Von welchem Hersteller ist dein hauptsächlich genutzter PKW?
                 </div>
                 <div class="list-group-item">
                   <div class="input-group">
@@ -430,13 +484,13 @@
                  <div class="list-group-item">
                    <input type="radio" name="auto" value="Sonstige"> Sonstige</div>
                  <div class="list-group-item">
-                   <input type="radio" name="auto" value="trifft nicht zu"> trifft nicht zu</div>
+                   <input type="radio" name="auto" value="ich fahre kein Auto"> ich fahre kein Auto</div>
                  <div class="list-group-item">
                    <input type="radio" name="auto" value="weiß nicht"> weiß nicht</div>
                  <div class="list-group-item">                  
                    <input type="radio" name="partei" value="keine Angabe"> keine Angabe</div>
             </div><!-- /list group -->
-            <div id="alert5" class="alert alert-warning alert-dismissible hide" role="alert">
+            <div id="alert5" class="customalert hide" role="alert">
               Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
             </div>
           </div> <!-- /#frage5 -->
@@ -446,9 +500,11 @@
                   <button type="button" id="do5" class="tglbtn btn btn-secondary active">DO</button>
                   <button type="button" id="de5" class="tglbtn btn btn-secondary">DE</button>
               </div>
-              <span> (n=191)</span>
+              <span> (befragte Dortmunder=191)</span>
               <div id="chart5"></div>
-              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+              <div>
+                <br>VW ist nicht nur in Dortmund, sondern auch in ganz Deutschland der beliebteste Autohersteller. Die Dortmunder verzichten aber deutlich öfter ganz aufs Auto als der durchschnittsdeutsche. Schließlich ist man im Ruhrgebiet so gut angebunden, das Bus und Bahn auch eine solide Alternative bilden.
+              </div>
             </div>
         </div>
     <div class="jumbotron">
@@ -458,7 +514,7 @@
               <!-- Hunde oder Kazen -->
               <div class="list-group">
                 <div class="list-group-item disabled">
-                  Bist Du eher...
+                  Bist du eher...
                 </div>
                 <div class="list-group-item">
                   <input type="radio" name="hundkatze" value="Hundefreund"> Hundefreund</div>
@@ -467,13 +523,12 @@
                 <div class="list-group-item">
                   <input type="radio" name="hundkatze" value="Weder noch"> Weder noch</div>
                 <div class="list-group-item">                  
-                  <input type="radio" name="hundkatze" value="Weiß nicht/Keine Angabe"> Weiß nicht/Keine Angabe
+                  <input type="radio" name="hundkatze" value="weiß nicht/keine Angabe"> weiß nicht/keine Angabe
                 </div>
               </div>
             <button type="button" id="abschicken6" class="btn bluebtn">Antworten abschicken</button>
-            <div id="alert6" class="alert alert-warning alert-dismissible hide" role="alert">
-              Die Ergebnisse werden angezeigt, sobald Du die Fragen beantwortest. <br>
-              Bitte wähle eine Antwortmöglichkeit aus den Suchvorschlägen aus.
+            <div id="alert6" class="customalert hide" role="alert">
+              Die Ergebnisse werden angezeigt, sobald du die Fragen beantwortest.
             </div>
           </div> <!-- /#frage6 -->
            <div id="results6" class="results hide">
@@ -482,38 +537,80 @@
                   <button type="button" id="do6" class="tglbtn btn btn-secondary active">DO</button>
                   <button type="button" id="de6" class="tglbtn btn btn-secondary">DE</button>
               </div>
-              <span> (n=107)</span>
+              <span> (befragte Dortmunder=107)</span>
               <div id="chart6"></div>
-              <div style:'font-size=150%'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam. Nullam iaculis neque in pellentesque condimentum. Sed at hendrerit metus. Fusce a nisi id tellus mollis efficitur. Nullam sodales vitae elit non porttitor. Nullam et sapien quis turpis semper scelerisque bibendum euismod neque.</div>
+              <div>
+                <br>In Dortmund sind die Hundefreunde in der Überzahl, mehr noch als im deutschen Durchschnitt. Doch egal, ob ihr Hundeliebhaber, Katzenmensch oder doch etwas ganz anderes seid: Bei dieser Frage ist jede Wahl die richtige.</div>
             </div>
         </div>
     </div>
     <div class="jumbotron">
-        <div class="container" id="score"><h2>Dein Ergebnis</h2></div>
+        <div class="container" id="score">
+          <h2>Dein Ergebnis</h2>
+        </div>
         <div class="container">
-            <div id="notyet">
+            <div id="notyet" class="list-group-item disabled">
               Beantworte alle Fragen und finde heraus, wie viel Dortmund in dir steckt!
           </div> <!-- /#notyet -->
-           <div id="done" class="results hide">
+           <div id="done" class="results hide list-group-item disabled">
               <div align=center style="font-size:150%;font-family: 'Open Sans Condensed', sans-serif">
-                <span style="vertical-align: top">Du hast  </span>
+                <span style="vertical-align: top"><br>Du hast  </span>
                 <b id="endscore" style="font-size:250%">XX/100</b>
-                <span style="font-size:150%">Punkten erreicht</span></div>
-              <div style:'font-size=150%'> [Einzelwerte mit Prozentangaben nochmal zusammenfassend einfügen. Scores in Kategorien einteilen: "Neuling" bis "Urgestein" oder so. Beschreiben/illustrieren, was der "typische" Dortmunder wäre.] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a maximus arcu. Maecenas nisi lorem, pellentesque in vestibulum ac, finibus non libero. Curabitur dolor nulla, eleifend sit amet nulla vitae, iaculis condimentum mauris. Nulla in accumsan mauris. Fusce et magna sagittis, varius justo et, hendrerit justo. Pellentesque eget justo aliquet, pretium purus eu, lobortis ipsum. Quisque augue ligula, gravida quis magna eu, hendrerit hendrerit sapien. Donec nec ligula elit. Suspendisse lobortis, metus non rutrum fermentum, risus augue pharetra quam, sed sagittis urna sapien non diam.</div>
+                <span style="font-size:150%">Punkten erreicht</span>
+              </div>
+              <div style="font-size:150%" id="score_low" class="hide">
+                <br>Sicher, dass du nicht aus Gelsenkirchen bist?!?<br>
+                Nein, jetzt mal ernsthaft: Sie haben zwar relativ wenige Gemeinsamkeiten mit dem typischen Dortmunder. Aber wer will schon gewöhnlich sein? Unsere Stadt lebt schließlich von der Vielfalt ihrer Bewohner!
+              </div>
+              <div style="font-size:150%" id="score_middle" class="hide">
+                <br>Du passt schon ganz gut in die Stadt, doch ein typischer Dortmunder bist du – statistisch gesehen – noch nicht. Aber: Es wäre ja auch schlimm, wenn wir alle gleich wären!
+              </div>
+              <div style="font-size:150%" id="score_high" class="hide">
+                <br>Herzlichen Glückwunsch, in dir steckt ein ganzer Dortmunder! Dir macht niemand ein X für einen U-Turm vor. Diese Stadt ist genau die richtige für dich!
+              </div>
+              <div align=center style="font-size:150%" id="share">
+                <br><b>Teile dein Ergebnis mit Freunden:</b><br><br>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=rn.de%2FWieDortmundBistDu&t=Wie%20Dortmund%20bist%20du%3F" title="Share on Facebook" target="_blank" id="facebook-result">
+                  <i class="fa fa-2x fa-facebook-official" style="color:#4862A3"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?source=rn.de%2FWieDortmundBistDu&text=Wie%20Dortmund%20bist%20du%3F%20Teste%20dich%20selbst%20und%20finde%20heraus%20wie%20viel%20Dortmund%20in%20dir%20steckt.%20rn.de%2FWieDortmundBistDu" target="_blank" title="Tweet" id="twitter-result">
+                  <i class="fa fa-2x fa-twitter" style="color:#55ACEE"></i>
+                </a>
+                <a href="mailto:?&subject=Wie Dortmund bist du?&body=Teste%20dich%20selbst%20und%20finde%20heraus%20wie%20viel%20Dortmund%20in%20dir%20steckt.%20rn.de%2FWieDortmundBistDu" target="_blank" title="Tweet" id="mail-result">
+                  <i class="fa fa-2x fa-envelope" style="color:#5a5a5a"></i>
+                </a>
+              </div>
             </div>
         </div>
     </div>
-
+    <hr style="margin-top: 70px">
+    <div class="jumbotron">
+      <div class="container" align=center>
+        <br><b>Impressum</b><br><br>
+        Ein Internetauftritt der Verlag Lensing-Wolff GmbH & Co. KG<br><br>
+        Verlag Lensing-Wolff GmbH & Co. KG<br>
+        Westenhellweg 86-88, 44137 Dortmund<br>
+        Sitz Dortmund, Amtsgericht Dortmund, HRA 12780<br><br><br>
+        Komplementärin: Verlag Lensing-Wolff Verwaltungsgesellschaft mbH<br>
+        Sitz Dortmund, Amtsgericht Dortmund, HRB 13619<br><br><br>
+        Geschäftsführer:<br>
+        Lambert Lensing-Wolff, Christoph Sandmann, Hans-Christian Haarmann<br><br><br>
+        Verantwortlich i.S.v. § 55 RStV:<br>
+        Dr. Wolfram Kiwit<br><br><br>
+        Telefon (0231) 9059 - 0<br>
+        Telefax (0231) 9059 - 8707
+      </div>
     </div>
+  </div>
 </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="data/data.js"></script>
-        <script src="js/main.js"></script>
         <script src="js/vendor/highcharts.js"></script>
         <script src="js/vendor/highcharts-more.js"></script>
         <script src="js/vendor/treemap.js"></script>
+        <script src="js/main.js"></script>
         <script src="js/charts.js"></script>
     </body>
 </html>

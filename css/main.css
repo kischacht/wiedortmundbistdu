@@ -3,9 +3,20 @@ div {
     padding-bottom: 0.35%;
 }
 
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus{
+  cursor: default;
+  color: #333333;
+}
+
 body {
   font-family: 'Georgia';
-  text-align: justify;
+  text-align: left;
+  padding-bottom: 20px;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 h1, h2, li, .list-group-item.disabled {
@@ -15,11 +26,27 @@ h1, h2, li, .list-group-item.disabled {
 
 h2 span { font-size:70%; }
 
-#info-nav {
-  position:absolute;
-  bottom:20px;
-  right:5px;
-  font-size: 150%;
+#intro-header {
+  background: url("../img/header-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100% !important;
+  min-height: 450px;
+  color: white;
+}
+
+#intro-header-text {
+  padding: 5%;
+}
+
+.jumbotron {
+  background: #ffffff;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.btn-group {
+  margin: 10px;
 }
 
 .btn-secondary.active{
@@ -35,7 +62,13 @@ h2 span { font-size:70%; }
 
 .tglbtn:not(.active) {
   background-color: rgba(0,158,224,0.2);
+  border:none;
 }
+
+.chart-title{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 
 #chart6, #chart11, #chart12, #chart13{
   height:10vh
@@ -67,13 +100,67 @@ h2 span { font-size:70%; }
 }
 
 .glyphicon-ok {
-    margin-top: 13px;
-    visibility: hidden;
+  margin-top: 13px;
+  padding-right: 10px;
+  visibility: hidden;
 }
-/*
-.alert {
-    visibility: hidden;
-}*/
+
+
+.customalert {
+  padding-top: 2%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  vertical-align: middle;
+}
+
+/* Navbar styles */
+
+#rn-img {
+    vertical-align: middle;
+    padding-bottom: 5%;
+    max-height: 50px;
+    max-width: 70%;
+}
+
+/* Social media buttons */
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  font-size: 170%;
+  right: 2%;
+  top: 15%;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+ul.share-buttons img{
+  width: 3.5vw;
+  max-width:38px;
+  min-width: 20px;
+}
+
+
+
+/* Sidebar Styles */
+
 
 #wrapper {
     padding-left: 0;
@@ -88,6 +175,7 @@ h2 span { font-size:70%; }
 }
 
 #sidebar-wrapper {
+    background-color: rgba(0,158,224,0.3);
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -95,7 +183,6 @@ h2 span { font-size:70%; }
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    /*background: #000;*/
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -114,15 +201,13 @@ h2 span { font-size:70%; }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -150px;
+    margin-right: -180px;
 }
-
-/* Sidebar Styles */
 
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 150px;
+    width: 180px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -152,7 +237,7 @@ h2 span { font-size:70%; }
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
-    font-size: 18px;
+    font-size: 120%;
     line-height: 60px;
 }
 
@@ -166,8 +251,13 @@ h2 span { font-size:70%; }
 }
 
 @media(min-width:768px) {
+
+    body {
+      font-size: 200%;
+    }
+
     #wrapper {
-        padding-left: 150px;
+        padding-left: 180px;
     }
 
     #wrapper.toggled {
@@ -175,7 +265,8 @@ h2 span { font-size:70%; }
     }
 
     #sidebar-wrapper {
-        width: 150px;
+        width: 180px;
+        margin-top: 60px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -191,58 +282,65 @@ h2 span { font-size:70%; }
         position: relative;
         margin-right: 0;
     }
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-    }
-/*
-    .switch input {display:none;}
+}
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+/* Info Box */
 
-    input:checked + .slider {
-      background-color: #fff300;
-    }
+ /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
 
-    input:focus + .slider {
-      box-shadow: 0 0 1px #fff300;
-    }
+/* Modal Content/Box */
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 5% 10% 5% 10%;
+    border: 1px solid #888;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
 
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
 
-    .slider.round {
-      border-radius: 34px;
-    }
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
 
-    .slider.round:before {
-      border-radius: 50%;
-    }*/
-    }
+/* The Close Button */
+.close {
+    float: right;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.close:hover.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#info-btn {
+  cursor: pointer;
+}

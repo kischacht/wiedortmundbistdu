@@ -1,7 +1,7 @@
 data= [
     {
       "variable" : "Automarke",
-      "answer" : "trifft nicht zu",
+      "answer" : "ich fahre kein Auto",
       "target_percent" : 23.586283153156,
       "target_n" : 45,
       "target_base" : 191,
@@ -1129,7 +1129,7 @@ data= [
     },
     {
       "variable" : "Parteineigung",
-      "answer" : "Ich neige keiner Partei zu",
+      "answer" : "ich neige keiner Partei zu",
       "target_percent" : 33.3917386482494,
       "target_n" : 134,
       "target_base" : 400,
@@ -1393,7 +1393,7 @@ data= [
     },
     {
       "variable" : "Glaube",
-      "answer" : "keinem",
+      "answer" : "ich habe keinen",
       "target_percent" : 28.275475465269,
       "target_n" : 81,
       "target_base" : 286,
@@ -1537,7 +1537,7 @@ data= [
     },
     {
       "variable" : "Hunde- oder Katzenfreund",
-      "answer" : "Weiß nicht/Keine Angabe",
+      "answer" : "weiß nicht/keine Angabe",
       "target_percent" : 0.677568111457259,
       "target_n" : 1,
       "target_base" : 107,

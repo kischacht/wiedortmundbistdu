@@ -8,14 +8,20 @@ function sortResults(data, prop, asc) {
         }
     });
 }
-/* font family */
-Highcharts.setOptions({
+/* Highcharts theme */
+
+Highcharts.theme = {
+    colors: ['#e9594a', '#AEA692', '#00AEEF', '#e9a94a', '#ae9892','#7befde', '#b2e94a', '#92aead','#7b8cef'],
     chart: {
         style: {
             fontFamily: 'Georgia',
         }
     }
-})
+};
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+
+var showLabels = $(window).width() > 768;
 
 /*
 Block 1: Demographie
@@ -86,11 +92,11 @@ $(function () {
     $('.highcharts-axis').css('display','none');
 });
 
-/* chart 1.2: geschlecht */
+/* chart 1.2: alter */
 // array filtern
 chart12data = $.grep(data, function (data) {
   return data.variable === "Alter";
-}); sortResults(chart12data, 'target_percent', asc=false);
+}); sortResults(chart12data, 'answer', asc=false);
 // Populate series
 var chart12series = [];
 for (i = 0; i < chart12data.length; i++){
@@ -138,62 +144,6 @@ $(function () {
             },
         },
         series: $.extend(true,[],chart12series),
-    });
-    $('.highcharts-axis').css('display','none');
-});
-
-/* chart 1.3: migrationshintergrund */
-// array filtern
-chart13data = $.grep(data, function (data) {
-  return data.variable === "Migrationshintergrund";
-}); sortResults(chart13data, 'target_percent', asc=false);
-// Populate series
-var chart13series = [];
-for (i = 0; i < chart13data.length; i++){
-    chart13series.push({
-      name: chart13data[i].answer,
-      data: [chart13data[i].target_percent],
-    });
-}
-var chart13seriesDE = [];
-for (i = 0; i < chart13data.length; i++){
-    chart13seriesDE.push(chart13data[i].control_percent);
-}
-$(function () {
-    $('#chart13').highcharts({
-        chart: {
-            backgroundColor: null,
-            type: 'bar',
-            margin: [0,0,0,0]
-        },
-        title: {text: ''},
-        xAxis: {enabled: false,},
-        yAxis: {enabled: false,},
-        legend: {enabled: false,},
-        credits: {enabled: false,},
-        tooltip: {
-            formatter: function() {
-                return "<strong>" + this.series.name + ":</strong> Etwa " + Math.round(this.y*10)/10 + " %";
-            }
-        },
-        plotOptions: {
-            series: {
-                stacking: 'percent',
-                pointPadding: 0,
-                groupPadding: 0,
-                dataLabels: {
-                    enabled: true,
-                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                    style: {
-                        textShadow: '0 0 3px black'
-                    },
-                    formatter: function() {
-                        return "<strong>" + this.series.name + "</strong>";
-                    }
-                }
-            },
-        },
-        series: $.extend(true,[],chart13series),
     });
     $('.highcharts-axis').css('display','none');
 });
@@ -282,7 +232,7 @@ $(function () {
     });
 });
 
-/* chart 1.4: sexuelle orientierung */
+/* chart 1.6: glaube */
 // array filtern
 chart16data = $.grep(data, function (data) {
   return data.variable === "Glaube";
@@ -326,7 +276,6 @@ $(function () {
 $('#de1').click(function(){
   var chart11 = $('#chart11').highcharts();
   var chart12 = $('#chart12').highcharts();
-  var chart13 = $('#chart13').highcharts();
   var chart14 = $('#chart14').highcharts();
   var chart15 = $('#chart15').highcharts();
   var chart16 = $('#chart16').highcharts();
@@ -336,9 +285,6 @@ $('#de1').click(function(){
   for(i = 0; i < chart12.series.length; i++) {
     chart12.series[i].setData([chart12seriesDE[i]]);
   };
-  for(i = 0; i < chart13.series.length; i++) {
-    chart13.series[i].setData([chart13seriesDE[i]]);
-  };
   chart14.series[0].setData(chart14seriesDE);
   chart15.series[0].setData(chart15seriesDE);
   chart16.series[0].setData(chart16seriesDE);
@@ -346,7 +292,6 @@ $('#de1').click(function(){
 $('#do1').click(function(){
   var chart11 = $('#chart11').highcharts();
   var chart12 = $('#chart12').highcharts();
-  var chart13 = $('#chart13').highcharts();
   var chart14 = $('#chart14').highcharts();
   var chart15 = $('#chart15').highcharts();
   var chart16 = $('#chart16').highcharts();
@@ -355,9 +300,6 @@ $('#do1').click(function(){
   };
   for(i = 0; i < chart12.series.length; i++) {
     chart12.series[i].setData([chart12series[i].data]);
-  };
-  for(i = 0; i < chart13.series.length; i++) {
-    chart13.series[i].setData([chart13series[i].data]);
   };
   chart14.series[0].setData(chart14series);
   chart15.series[0].setData(chart15series);
@@ -382,6 +324,7 @@ for (i = 0; i < chart2data.length; i++){
 
 $(function () {
     $('#chart2').highcharts({
+        colors: ['#969696', '#E0001A', '#1B191E', '#B4029C', '#3F8E5F', '#FEED01', '#F29400', '#9c35db', '#009EE0', '#A96C2C', '#346284'],
         chart: {
             type: 'pie',
             backgroundColor: 'rgba(255,255,255,0.3)',
@@ -391,7 +334,8 @@ $(function () {
             pie: {
                 startAngle: -90,
                 endAngle: 90,
-                center: ['50%', '75%']
+                center: ['50%', '75%'],
+                dataLabels: {enabled: showLabels}
             }
         },
         tooltip: {
@@ -459,6 +403,7 @@ $(function () {
         },
         series: [{
           type: "treemap",
+          colorByPoint: true,
           layoutAlgorithm: 'squarified',
           data: $.extend(true,[],chart3series)
         }]
@@ -471,7 +416,10 @@ $('#do3').click(function(){
   $('#chart3').highcharts().series[0].setData(chart3series);
 });
 
-/* Block 4: Fußballteams: Bubble chart */
+
+
+/* Block 4: Fußballteams: Bar chart */
+
 // array filtern
 chart4data = $.grep(data, function (data) {
   return data.variable === "Fußballteam";
@@ -482,8 +430,55 @@ for (i = 0; i < chart4data.length; i++){
   chart4data[i].shortname = chart4shortnames[i]
 }
 sortResults(chart4data, 'target_percent', asc=false);
-//verwende nur die 20 teams mit der höchsten wertung
-chart4datas = chart4data.slice(0,20)
+
+//verwende nur die 12 teams mit der höchsten wertung
+chart4datas = chart4data.slice(0,12)
+
+// Populate series
+var chart4categories = [];
+var chart4series = [];
+var chart4seriesDE = [];
+for (i = 0; i < chart4datas.length; i++){
+    chart4categories.push(chart4datas[i].shortname);
+    chart4series.push(chart4datas[i].target_percent);
+    chart4seriesDE.push(chart4datas[i].control_percent);
+}
+
+//Chart
+
+$(function () {
+    $('#chart4').highcharts({
+        colors: ['#FFFF00', '#afafaf', '#E1003C', '#cecece', '#5098f8', '#0B4A9E', '#1E9054', '#CC0000', '#E32221', '#ED232A', '#5a5a5a', '#0065AF'],
+        chart: {
+            type: 'bar',
+            backgroundColor: 'rgba(255,255,255,0.3)',
+        },
+        title: { text: null },
+        tooltip: {
+          formatter: function () {
+              return  "<strong>" + this.x + ":</strong> Etwa " + Math.round(this.y*10)/10 + " %";
+          }
+        },
+        xAxis: {
+          categories: chart4categories,
+          crosshair: true,
+        },
+        legend: { enabled: false },
+        credits: { enabled: false },
+        series: [{
+          colorByPoint: true,
+          data: $.extend(true,[],chart4series),
+        }]
+    });
+});
+$('#de4').click(function(){
+  $('#chart4').highcharts().series[0].setData(chart4seriesDE);
+});
+$('#do4').click(function(){
+  $('#chart4').highcharts().series[0].setData(chart4series);
+});
+
+/*
 // Populate series
 chart4series = []; x = 20; y = 40;
 for (i = 0; i < chart4datas.length; i++){
@@ -548,7 +543,7 @@ $('#de4').click(function(){
 $('#do4').click(function(){
   $('#chart4').highcharts().series[0].setData(chart4series);
 });
-
+*/
 
 /* Block 5: Automarke: Donut */
 
@@ -579,6 +574,7 @@ $(function () {
               return "<strong>" + this.point.name + ":</strong> Etwa " + Math.round(this.y*10)/10 + " %";
           }
         },
+        plotOptions: { pie: { dataLabels: {enabled: showLabels} } },
         legend: {enabled: false},
         credits: {enabled: false},
         series: [{
